@@ -1,5 +1,5 @@
 import './Search.css'
-import React, { useContext } from 'react';
+import React, { useContext, createRef } from 'react';
 import { MovieContext } from './bindings';
 import { searchTypes } from './searchTypes';
 
@@ -29,6 +29,7 @@ export const Search = () => {
       onSubmit={onSubmit}
     >
       <input
+        ref={(el) => el && el.focus()}
         data-testid="search__input"
         className="search__input"
         type="search"

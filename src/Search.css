@@ -15,6 +15,11 @@
 
 .search__input {
   width: 240px;
+  transition: all 0.3s;
+}
+
+.search__input:focus {
+  transform: scale(1.02);
 }
 
 .search__select {
