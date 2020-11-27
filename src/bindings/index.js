@@ -25,12 +25,16 @@ export const search = async (
   }
 }
 
+export const fiterOutNonActors = (results) => results.filter(
+  ({ known_for_department }) => !known_for_department || known_for_department === 'Acting',
+)
+
 export const MovieProvider = ({ children }) => {
   const [feed, setFeed] = useState({})
   const [searchType, setSearchType] = useState(searchTypes[0][1])
   const [query, setQuery] = useState('')
   const props = {
-    results: feed.results || [],
+    results: fiterOutNonActors(feed.results || []),
     query,
     searchType,
     setQuery,
