@@ -1,0 +1,26 @@
+.search {
+  width: 300px;
+  position: fixed;
+  top: 96px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: flex-end;
+  height: 116px;
+}
+
+.search > * {
+  margin-right: 3px;
+}
+
+.search__input {
+  width: 240px;
+}
+
+.search__select {
+  width: 300px;
+}
+
+.search__submit {
+  width: 54px;
+}

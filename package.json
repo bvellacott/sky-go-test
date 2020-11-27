@@ -1,5 +1,5 @@
 {
-  "name": "my-razzle-app",
+  "name": "sky-movie-search-test",
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "express": "4.17.1",
+    "node-fetch": "2.6.1",
     "react": "16.14.0",
     "react-dom": "16.14.0",
     "react-router-dom": "5.2.0"

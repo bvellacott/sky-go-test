@@ -1,0 +1,42 @@
+.result {
+  border-radius: 6px;
+  box-shadow: 0px 0px 3px 0px steelblue;
+  color: white;
+  background: steelblue;
+  width: 300px;
+  height: 169px;
+}
+
+.result__title {
+  padding: 6px 0;
+}
+
+.result__name {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 3px 12px;
+}
+
+.result__artist {
+  font-size: 18px;
+  margin: 3px 12px;
+}
+
+.result__copyright {
+  font-size: 10px;
+  margin: 3px 3px;
+}
+
+.result__image {
+  height: 100%;
+  border-radius: 6px;
+}
+
+.result__image-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 3px;
+  height: 200px;
+  overflow: hidden;
+}

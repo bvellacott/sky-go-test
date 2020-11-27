@@ -1,33 +1,48 @@
-import React from 'react';
-import logo from './react.svg';
-import './Home.css';
 
-class Home extends React.Component {
-  render() {
-    return (
-      <div className="Home">
-        <div className="Home-header">
-          <img src={logo} className="Home-logo" alt="logo" />
-          <h2>Welcome to Razzle</h2>
-        </div>
-        <p className="Home-intro">
-          To get started, edit <code>src/App.js</code> or{' '}
-          <code>src/Home.js</code> and save to reload.
-        </p>
-        <ul className="Home-resources">
-          <li>
-            <a href="https://github.com/jaredpalmer/razzle">Docs</a>
-          </li>
-          <li>
-            <a href="https://github.com/jaredpalmer/razzle/issues">Issues</a>
-          </li>
-          <li>
-            <a href="https://palmer.chat">Community Slack</a>
-          </li>
+import './Home.css'
+import React, { useContext } from 'react';
+import { MovieContext } from './bindings';
+import { Search } from './Search'
+import { Result } from './Result'
+
+export const getImageForResult = ({
+  profile_path,
+  backdrop_path,
+  poster_path,
+  known_for,
+}) => (
+  profile_path // person
+  || backdrop_path // movie
+  || poster_path // movie
+  || (known_for && (known_for.find((kf) => kf.backdrop_path) || {}).backdrop_path) // person
+)
+
+export const Home = () => {
+  const { results = [] } = useContext(MovieContext);
+  return (
+    <>
+      <header>
+        <h1>Sky movie search test</h1>
+      </header>
+      <main>
+        <Search/>
+        <ul className="home__results">
+          {results.map((result) => (
+            <li className="home__result" key={result.url}>
+              <Result
+                name={result.name}
+                artistName={result.artistName}
+                profile_path={getImageForResult(result)}
+                url={result.url}
+                copyright={result.copyright}
+              />
+            </li>
+          ))}
         </ul>
-      </div>
-    );
-  }
+      </main>
+      <footer>
+        © 2020 SolidKode Ltd. All rights reserved.
+      </footer>
+    </>
+  );
 }
-
-export default Home;
