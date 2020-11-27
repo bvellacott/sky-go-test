@@ -1,18 +1,20 @@
 import './Result.css'
+import { Link } from 'react-router-dom'
 import React from 'react'
 
 export const Result = ({
+  id,
   name,
+  mediaType,
   artistName,
   profile_path,
-  url,
   copyright
 }) => (
-  <a href={url} target="_blank">
+  <Link to={`/details/${mediaType}/${id}`}>
     <article
       className="result"
       style={{
-        background: `center / contain no-repeat url('//image.tmdb.org/t/p/original${profile_path}')`
+        background: profile_path && `center / contain no-repeat url('//image.tmdb.org/t/p/original${profile_path}')`
       }}
     >
     <div className="result__title">
@@ -23,5 +25,5 @@ export const Result = ({
       <p className="result__copyright">{copyright}</p>
     </div>
     </article>
-  </a>
+  </Link>
 )

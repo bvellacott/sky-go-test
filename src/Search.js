@@ -1,19 +1,20 @@
 import './Search.css'
 import React, { useContext, createRef } from 'react';
+import { useHistory } from 'react-router-dom';
 import { MovieContext } from './bindings';
 import { searchTypes } from './searchTypes';
 
 export const Search = () => {
+  const history = useHistory()
   const {
     query,
     searchType,
     setQuery,
     setSearchType,
-    search,
   } = useContext(MovieContext);
   const onSubmit = (e) => {
     e.preventDefault()
-    search()
+    history.push(`/${searchType}?query=${encodeURIComponent(query)}`)
   }
   const onTypeChange = (e) => {
     setSearchType(e.target.value)

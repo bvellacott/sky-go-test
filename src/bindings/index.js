@@ -13,12 +13,31 @@ export const search = async (
 ) =>  {
   try {
     const response = await fetch(
-      `/search/${searchType}?query=${qyery}`,
+      `/api/search/${searchType}?query=${qyery}`,
     );
     if (response.ok) {
       setFeed((await response.json()))
     } else {
       console.error('failed to get results')
+    }
+  } catch (e) {
+    console.error(e);
+  }
+}
+
+export const getDetails = async (
+  mediaType,
+  id,
+  setDetails,
+) => {
+  try {
+    const response = await fetch(
+      `/api/details/${mediaType}/${id}`,
+    );
+    if (response.ok) {
+      setDetails((await response.json()))
+    } else {
+      console.error('failed to get details')
     }
   } catch (e) {
     console.error(e);
@@ -33,13 +52,16 @@ export const MovieProvider = ({ children }) => {
   const [feed, setFeed] = useState({})
   const [searchType, setSearchType] = useState(searchTypes[0][1])
   const [query, setQuery] = useState('')
+  const [details, setDetails] = useState({})
   const props = {
     results: fiterOutNonActors(feed.results || []),
     query,
     searchType,
+    details,
     setQuery,
     setSearchType,
-    search: () => search(searchType, query, setFeed),
+    runSearch: (searchType, query) => search(searchType, query, setFeed),
+    getDetails: (mediaType, id) => getDetails(mediaType, id, setDetails),
   }
   return (
     <MovieContext.Provider value={props} >
