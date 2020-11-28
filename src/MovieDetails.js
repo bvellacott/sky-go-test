@@ -13,18 +13,14 @@ export const MovieDetails = () => {
     backdrop_path,
     poster_path,
     overview,
-    genres,
   } = details
-  useEffect(() => { getDetails(mediaType, id) }, [])
+  useEffect(() => { getDetails(mediaType, id) }, [mediaType, id])
   return (
     <DetailsTemplate
       title={title}
+      type="Movie"
       image={backdrop_path || poster_path}
       waffle={overview}
-      keyValTitle="Genres"
-      keyValList={[(genres || []).map(
-        ({ name }) => [name, '']
-      )]}
     />
   );
 }

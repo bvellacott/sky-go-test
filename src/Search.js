@@ -1,28 +1,41 @@
 import './Search.css'
-import React, { useContext, createRef } from 'react';
+import React, { useContext, useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import { Suggestions } from './Suggestions';
 import { MovieContext } from './bindings';
 import { searchTypes } from './searchTypes';
 
 export const Search = () => {
   const history = useHistory()
+  const [hasFocused, setHasFocused] = useState(null)
   const {
     query,
     searchType,
     setQuery,
     setSearchType,
+    getSearchSuggestions,
+    setSuggestions,
   } = useContext(MovieContext);
   const onSubmit = (e) => {
     e.preventDefault()
+    setSuggestions([])
     history.push(`/${searchType}?query=${encodeURIComponent(query)}`)
   }
   const onTypeChange = (e) => {
     setSearchType(e.target.value)
   }
   const onQueryChange = (e) => {
-    console.log(e.target.value)
-    setQuery(e.target.value)
+    const { value } = e.target
+    setQuery(value)
+    getSearchSuggestions(searchType, value)
   }
+  const getSearchInputRef = (el) => {
+    if (!hasFocused && el) {
+      el.focus()
+      setHasFocused(true)
+    }
+  }
+
   return (
     <form
       data-testid="search"
@@ -30,13 +43,15 @@ export const Search = () => {
       onSubmit={onSubmit}
     >
       <input
-        ref={(el) => el && el.focus()}
+        ref={getSearchInputRef}
         data-testid="search__input"
         className="search__input"
         type="search"
         value={query}
         onChange={onQueryChange}
+        onBlur={() => setTimeout(() => setSuggestions([]), 300)}
       />
+      <Suggestions />
       <button
         data-testid="search__submit"
         className="search__submit"

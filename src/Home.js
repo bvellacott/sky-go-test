@@ -19,5 +19,10 @@ export const Home = ({
       runSearch(searchType, query)
     }
   }, [searchType, query])
-  return <Results results={results} />;
+
+  const mediaType = searchType !== 'multi'
+    ? searchType
+    : null
+
+  return <Results mediaType={mediaType} results={results} />;
 }

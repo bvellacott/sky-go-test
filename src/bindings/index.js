@@ -44,23 +44,29 @@ export const getDetails = async (
   }
 }
 
-export const fiterOutNonActors = (results) => results.filter(
-  ({ known_for_department }) => !known_for_department || known_for_department === 'Acting',
-)
-
 export const MovieProvider = ({ children }) => {
   const [feed, setFeed] = useState({})
+  const [suggestions, setSuggestions] = useState({})
   const [searchType, setSearchType] = useState(searchTypes[0][1])
   const [query, setQuery] = useState('')
   const [details, setDetails] = useState({})
   const props = {
-    results: fiterOutNonActors(feed.results || []),
+    results: feed.results || [],
+    suggestions: suggestions.results,
     query,
     searchType,
     details,
     setQuery,
     setSearchType,
     runSearch: (searchType, query) => search(searchType, query, setFeed),
+    setSuggestions,
+    getSearchSuggestions: (searchType, query) => {
+      if (query.length < 3) {
+        setSuggestions([])
+      } else {
+        search(searchType, query, setSuggestions)
+      }
+    },
     getDetails: (mediaType, id) => getDetails(mediaType, id, setDetails),
   }
   return (

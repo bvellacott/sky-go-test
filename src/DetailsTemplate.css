@@ -25,6 +25,15 @@
   width: 80%;
 }
 
+.details-template__type {
+  font-size: 32px;
+  font-weight: bold;
+  color: white;
+  width: 80%;
+  text-align: center;
+  margin: 10px
+}
+
 .details-template__image {
   border-radius: 5px;
   width: 90%;
@@ -34,12 +43,12 @@
   font-size: 16px;
   font-weight: bold;
   line-height: 2;
-  color: steelblue;
+  color: darkslategray;
   margin: 10%;
 }
 
 .details-template__content-heading {
   font-size: 24px;
   font-weight: bold;
-  color: steelblue;
+  color: white;
 }

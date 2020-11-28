@@ -1,0 +1,17 @@
+
+.suggestions {
+  top: 58px;
+  position: absolute;
+}
+
+.suggestions__item {
+  border-radius: 5px;
+  width: 300px;
+  background: rgba(0,0,0,0.8);
+  border: solid 1px steelblue;
+  height: 58px;
+  z-index: 0;
+  text-align: center;
+  vertical-align: middle;
+  margin-top: 3px;
+}

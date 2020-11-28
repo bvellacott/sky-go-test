@@ -1,0 +1,19 @@
+.suggestion {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.suggestion__image {
+  border-radius: 5px;
+  display: block;
+  height: 58px;
+}
+
+.suggestion__title {
+  font-weight: bold;
+  font-size: 16px;
+  color: white;
+  margin-left: 25px;
+}

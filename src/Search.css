@@ -1,4 +1,5 @@
 .search {
+  position: relative;
   width: 300px;
   position: fixed;
   top: 96px;
@@ -29,4 +30,19 @@
 
 .search__submit {
   width: 54px;
+}
+
+.search__suggest {
+  position: absolute;
+}
+
+.search__suggestion {
+  border-radius: 5px;
+  width: 300px;
+  background: lightgray;
+  border: solid 1px gray;
+  height: 58px;
+  z-index: 0;
+  text-align: center;
+  vertical-align: middle;
 }

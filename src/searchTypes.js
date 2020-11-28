@@ -1,5 +1,5 @@
 export const searchTypes = [
-  ['Actors', 'person'],
+  ['People', 'person'],
   ['Movies', 'movie'],
   ['TV shows', 'tv'],
   ['Any', 'multi'],
