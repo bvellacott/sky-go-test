@@ -17,7 +17,7 @@ export const App = () => (
       </Switch>
     </main>
     <footer>
-      © 2020 SolidKode Ltd. All rights reserved.
+      © 2020 SolidKode Ltd. All rights reserved ;).
     </footer>
   </>
 );

@@ -8,7 +8,7 @@ export const DetailsTemplate = ({
   type,
   waffle,
   image,
-  keyValTitle,
+  contentTitle,
 }) => (
   <article className="details-template">
     <div className="details-template__heading">
@@ -24,7 +24,7 @@ export const DetailsTemplate = ({
       />
     </div>
     <p className="details-template__waffle">{waffle}</p>
-    <h3 className="details-template__content-heading">{keyValTitle}</h3>
+    <h3 className="details-template__content-heading">{contentTitle}</h3>
     <div className="details-template__content">
       {children}
     </div>

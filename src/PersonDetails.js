@@ -11,7 +11,6 @@ export const PersonDetails = () => {
     runSearch,
     getDetails,
   } = useContext(MovieContext)
-  const ctx = useContext(MovieContext)
   const { mediaType, id } = useParams()
   const {
     name,
@@ -33,7 +32,7 @@ export const PersonDetails = () => {
       type={known_for_department && `Known for ${known_for_department}`}
       image={profile_path}
       waffle={biography}
-      keyValTitle={'Known for'}
+      contentTitle={'Known for'}
     >
       <Results results={known_for} />
     </DetailsTemplate>

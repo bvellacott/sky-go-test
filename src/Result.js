@@ -1,29 +1,38 @@
 import './Result.css'
 import { Link } from 'react-router-dom'
 import React from 'react'
+import {
+  getMediaType,
+  getImageForResult,
+} from './utils'
 
 export const Result = ({
-  id,
-  name,
+  result,
   mediaType,
-  artistName,
-  profile_path,
-  copyright
-}) => (
-  <Link to={`/details/${mediaType}/${id}`}>
-    <article
-      className="result"
-      style={{
-        background: profile_path && `center / contain no-repeat url('//image.tmdb.org/t/p/original${profile_path}')`
-      }}
-    >
-    <div className="result__title">
-      <h2 className="result__name">{name}</h2>
-      <h3 className="result__artist">{artistName}</h3>
-    </div>
-    <div className="result__info">
-      <p className="result__copyright">{copyright}</p>
-    </div>
-    </article>
-  </Link>
-)
+}) => {
+  const {
+    id,
+    name,
+    title,
+    artistName,
+  } = result
+  const image = getImageForResult(result)
+  return (
+    <Link to={`/details/${mediaType || getMediaType(result)}/${id}`}>
+      <article
+        className="result"
+        style={{
+          background: image 
+            && `center / contain no-repeat url('//image.tmdb.org/t/p/original${image}')`
+        }}
+      >
+      <div className="result__title">
+        <h2 className="result__name">{name || title}</h2>
+        <h3 className="result__artist">{artistName}</h3>
+      </div>
+      </article>
+    </Link>
+  )
+}
+
+
