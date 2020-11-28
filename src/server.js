@@ -36,6 +36,19 @@ server
       res.status(500).send('oops!')
     }
   })
+  .get('/api/similar/:mediaType/:id', async (req, res) => {
+    try {
+      const { mediaType, id } = req.params
+      const url = new URL(`https://api.themoviedb.org/3/${mediaType}/${id}/similar`);
+      url.searchParams.append('api_key', '9ffbf8794a8e76a676766dd2922588b2');
+      const apiResponse = await fetch(url);
+      res.setHeader('Content-Type', 'application/json charset=UTF-8');
+      res.send(await apiResponse.buffer());
+    } catch (e) {
+      console.log(e)
+      res.status(500).send('oops!')
+    }
+  })
   .get('/*', (req, res) => {
     const context = {};
     const markup = renderToString(

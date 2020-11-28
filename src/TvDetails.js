@@ -5,22 +5,32 @@ import { MovieContext } from './bindings';
 import { DetailsTemplate } from './DetailsTemplate'
 
 export const TvDetails = () => {
-  const { details = {} } = useContext(MovieContext)
+  const {
+    details = {},
+    similar = [],
+    getDetails,
+    getSimilar,
+  } = useContext(MovieContext)
   const { mediaType, id } = useParams()
-  const { getDetails } = useContext(MovieContext);
+  useEffect(() => {
+    getDetails(mediaType, id)
+    getSimilar(mediaType, id)
+  }, [mediaType, id])
   const {
     name,
     backdrop_path,
     poster_path,
     overview,
   } = details
-  useEffect(() => { getDetails(mediaType, id) }, [mediaType, id])
   return (
     <DetailsTemplate
       title={name}
       type="TV Show"
       image={backdrop_path || poster_path}
       waffle={overview}
-    />
+      contentTitle={`Similar to '${title}'`}
+    >
+      <Results results={similar} mediaType={mediaType} />
+    </DetailsTemplate>
   );
 }

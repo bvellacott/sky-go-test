@@ -44,14 +44,35 @@ export const getDetails = async (
   }
 }
 
+export const getSimilar = async (
+  mediaType,
+  id,
+  setSimilar,
+) => {
+  try {
+    const response = await fetch(
+      `/api/similar/${mediaType}/${id}`,
+    );
+    if (response.ok) {
+      setSimilar((await response.json()))
+    } else {
+      console.error('failed to get similar titles')
+    }
+  } catch (e) {
+    console.error(e);
+  }
+}
+
 export const MovieProvider = ({ children }) => {
   const [feed, setFeed] = useState({})
   const [suggestions, setSuggestions] = useState({})
   const [searchType, setSearchType] = useState(searchTypes[0][1])
   const [query, setQuery] = useState('')
   const [details, setDetails] = useState({})
+  const [similar, setSimilar] = useState({})
   const props = {
     results: feed.results || [],
+    similar: similar.results || [],
     suggestions: suggestions.results,
     query,
     searchType,
@@ -68,6 +89,7 @@ export const MovieProvider = ({ children }) => {
       }
     },
     getDetails: (mediaType, id) => getDetails(mediaType, id, setDetails),
+    getSimilar: (mediaType, id) => getSimilar(mediaType, id, setSimilar),
   }
   return (
     <MovieContext.Provider value={props} >

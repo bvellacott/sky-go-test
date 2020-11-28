@@ -3,24 +3,35 @@ import React, { useContext, useEffect } from 'react';
 import { useParams } from 'react-router-dom'
 import { MovieContext } from './bindings';
 import { DetailsTemplate } from './DetailsTemplate'
+import { Results } from './Results';
 
 export const MovieDetails = () => {
-  const { details = {} } = useContext(MovieContext)
+  const {
+    details = {},
+    similar = [],
+    getDetails,
+    getSimilar,
+  } = useContext(MovieContext)
   const { mediaType, id } = useParams()
-  const { getDetails } = useContext(MovieContext);
+  useEffect(() => {
+    getDetails(mediaType, id)
+    getSimilar(mediaType, id)
+  }, [mediaType, id])
   const {
     title,
     backdrop_path,
     poster_path,
     overview,
   } = details
-  useEffect(() => { getDetails(mediaType, id) }, [mediaType, id])
   return (
     <DetailsTemplate
       title={title}
       type="Movie"
       image={backdrop_path || poster_path}
       waffle={overview}
-    />
+      contentTitle={`Similar to '${title}'`}
+    >
+      <Results results={similar} mediaType={mediaType} />
+    </DetailsTemplate>
   );
 }
