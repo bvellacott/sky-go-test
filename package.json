@@ -16,6 +16,7 @@
     "react-router-dom": "5.2.0"
   },
   "devDependencies": {
+    "@testing-library/react": "^11.2.2",
     "razzle": "3.3.7"
   }
 }
