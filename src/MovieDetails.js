@@ -25,6 +25,7 @@ export const MovieDetails = () => {
   } = details
   return (
     <DetailsTemplate
+      testid="movie-details"
       title={title}
       type="Movie"
       image={backdrop_path || poster_path}

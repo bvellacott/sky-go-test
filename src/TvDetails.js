@@ -25,6 +25,7 @@ export const TvDetails = () => {
   } = details
   return (
     <DetailsTemplate
+      testid="tv-details"
       title={name}
       type="TV Show"
       image={backdrop_path || poster_path}

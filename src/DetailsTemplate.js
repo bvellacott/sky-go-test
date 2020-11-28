@@ -3,6 +3,7 @@ import './DetailsTemplate.css'
 import React, { Fragment } from 'react';
 
 export const DetailsTemplate = ({
+  testid,
   children,
   title,
   type,
@@ -11,13 +12,14 @@ export const DetailsTemplate = ({
   contentTitle,
   waffleTitle,
 }) => (
-  <article className="details-template">
+  <article data-testid={testid} className="details-template">
     {title && (
       <>
         <h2 className="details-template__type">{type}</h2>
         <div className="details-template__heading">
           <h1 className="details-template__title">{title}</h1>
-          <img 
+          <img
+            data-testid={`${testid}-image`}
             className="details-template__image" 
             src={
               image 

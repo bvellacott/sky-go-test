@@ -14,4 +14,5 @@ export const Details = () => {
   } else if (mediaType === 'person') {
     return <PersonDetails/>
   }
+  return null
 }

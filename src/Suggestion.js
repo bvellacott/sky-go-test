@@ -15,21 +15,24 @@ export const Suggestion = ({ result }) => {
   } = useContext(MovieContext);
   const image = getImageForResult(result)
   const { name, title } = result
+  const itemTitle = name || title
   const mediaType = searchType !== 'multi' ? searchType : getMediaType(result)
   return (
     <Link
+      data-testid="suggestion"
       className="suggestion"
       to={`/details/${mediaType}/${result.id}`}
       onClick={() => {
         setSuggestions([])
-        setQuery(name || title)
+        setQuery(itemTitle)
       }}
     >
-      <h3 className="suggestion__title">{name || title}</h3>
+      <h3 className="suggestion__title">{itemTitle}</h3>
       <img
+        data-testid="suggestion__image"
         className="suggestion__image"
         src={
-          image 
+          image
             ? `//image.tmdb.org/t/p/original${image}`
             : '/im-an-actor.jpeg'
         }

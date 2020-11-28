@@ -16,7 +16,6 @@ export const PersonDetails = () => {
     name,
     profile_path,
     biography,
-    known_for_department,
   } = details
   useEffect(() => {
     getDetails(mediaType, id)
@@ -28,6 +27,7 @@ export const PersonDetails = () => {
   const { known_for = [] } = extraDetails || {}
   return (
     <DetailsTemplate
+      testid="person-details"
       title={name}
       image={profile_path}
       waffle={biography}

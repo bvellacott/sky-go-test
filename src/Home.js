@@ -14,6 +14,7 @@ export const Home = ({
     results = [],
     runSearch,
   } = useContext(MovieContext);
+
   useEffect(() => {
     if (searchType && query) {
       runSearch(searchType, query)

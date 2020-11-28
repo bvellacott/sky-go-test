@@ -18,7 +18,10 @@ export const Result = ({
   } = result
   const image = getImageForResult(result)
   return (
-    <Link to={`/details/${mediaType || getMediaType(result)}/${id}`}>
+    <Link
+      data-testid="result__link"
+      to={`/details/${mediaType || getMediaType(result)}/${id}`}
+    >
       <article
         className="result"
         style={{
@@ -27,7 +30,12 @@ export const Result = ({
         }}
       >
       <div className="result__title">
-        <h2 className="result__name">{name || title}</h2>
+        <h2
+          data-testid="result__name"
+          className="result__name"
+        >
+          {name || title}
+        </h2>
         <h3 className="result__artist">{artistName}</h3>
       </div>
       </article>
