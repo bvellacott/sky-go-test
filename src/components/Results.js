@@ -1,5 +1,5 @@
 import './Results.css'
-import React from 'react';
+import React from 'react'
 import { Result } from './Result'
 
 export const Results = ({ mediaType, results }) => (

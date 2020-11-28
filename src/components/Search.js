@@ -1,9 +1,9 @@
 import './Search.css'
-import React, { useContext, useState } from 'react';
-import { useHistory } from 'react-router-dom';
-import { Suggestions } from './Suggestions';
-import { MovieContext } from './bindings';
-import { searchTypes } from './searchTypes';
+import React, { useContext, useState } from 'react'
+import { useHistory } from 'react-router-dom'
+import { Suggestions } from './Suggestions'
+import { MovieContext } from '../bindings'
+import { searchTypes } from '../searchTypes'
 
 export const Search = () => {
   const history = useHistory()
@@ -15,7 +15,7 @@ export const Search = () => {
     setSearchType,
     getSearchSuggestions,
     setSuggestions,
-  } = useContext(MovieContext);
+  } = useContext(MovieContext)
   const onSubmit = (e) => {
     e.preventDefault()
     setSuggestions([])

@@ -1,10 +1,10 @@
 import './Suggestions.css'
-import React, { useContext } from 'react';
+import React, { useContext } from 'react'
 import { Suggestion } from './Suggestion'
-import { MovieContext } from './bindings';
+import { MovieContext } from '../bindings'
 
 export const Suggestions = () => {
-  const { suggestions = [] } = useContext(MovieContext);
+  const { suggestions = [] } = useContext(MovieContext)
   return (
     <ul className="suggestions">
       {suggestions.slice(0, 5).map((result) => (

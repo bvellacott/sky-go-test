@@ -1,7 +1,7 @@
-import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import React from 'react'
+import { Route, Switch } from 'react-router-dom'
 import { Search } from './Search'
-import { Home } from './Home';
+import { Home } from './Home'
 import { Details } from './Details'
 
 export const App = () => (
@@ -17,7 +17,7 @@ export const App = () => (
       </Switch>
     </main>
     <footer>
-      © 2020 SolidKode Ltd. All rights reserved ;).
+      © 2020 SolidKode Ltd. All rights reserved ).
     </footer>
   </>
-);
+)

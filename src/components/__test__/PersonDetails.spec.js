@@ -1,8 +1,8 @@
-import React from 'react';
-import { render, screen } from '@testing-library/react';
-import { Route } from 'react-router-dom';
-import { MockAppWrapper } from './tetsMocks';
-import { PersonDetails } from './PersonDetails';
+import React from 'react'
+import { render, screen } from '@testing-library/react'
+import { Route } from 'react-router-dom'
+import { MockAppWrapper } from '../../tetsMocks'
+import { PersonDetails } from '../PersonDetails'
 
 describe('PersonDetails component', () => {
   it('should run a getDetails and runSearch call with correct parameters', () => {
@@ -19,8 +19,8 @@ describe('PersonDetails component', () => {
       </MockAppWrapper>
     )
 
-    expect(getDetails).toHaveBeenCalledWith('person', '123');
-    expect(runSearch).toHaveBeenCalledWith('person', 'depp');
+    expect(getDetails).toHaveBeenCalledWith('person', '123')
+    expect(runSearch).toHaveBeenCalledWith('person', 'depp')
   })
 
   it('should render the profile_path from the details', () => {
@@ -37,7 +37,7 @@ describe('PersonDetails component', () => {
     )
 
     const image = screen.getByTestId('person-details-image')
-    expect(image.src).toEqual('http://image.tmdb.org/t/p/original/profile.png');
+    expect(image.src).toEqual('http://image.tmdb.org/t/p/original/profile.png')
   })
 
   it('should render known_for data from resulst if found', () => {
@@ -58,6 +58,6 @@ describe('PersonDetails component', () => {
     )
 
     const result = screen.getByTestId('results__result--456')
-    expect(result).toBeDefined();
+    expect(result).toBeDefined()
   })
-});
+})

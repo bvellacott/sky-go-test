@@ -1,8 +1,8 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import { MovieContext } from './bindings';
+import { MovieContext } from '../bindings'
 import { DetailsTemplate } from './DetailsTemplate'
-import { Results } from './Results';
+import { Results } from './Results'
 
 export const PersonDetails = () => {
   const {
@@ -35,5 +35,5 @@ export const PersonDetails = () => {
     >
       <Results results={known_for} />
     </DetailsTemplate>
-  );
+  )
 }

@@ -1,8 +1,7 @@
-import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
-import { Route } from 'react-router-dom';
-import { MockAppWrapper } from './tetsMocks';
-import { Suggestion } from './Suggestion';
+import React from 'react'
+import { render, screen, fireEvent } from '@testing-library/react'
+import { MockAppWrapper } from '../../tetsMocks'
+import { Suggestion } from '../Suggestion'
 
 describe('Suggestion component', () => {
   it('should clear suggestions and set the query primarily to name when clicked', () => {
@@ -94,4 +93,4 @@ describe('Suggestion component', () => {
     const image = screen.getByTestId('suggestion__image')
     expect(image.src).toEqual('http://image.tmdb.org/t/p/original/profile.png')
   })
-});
+})

@@ -1,7 +1,7 @@
-import React from 'react';
-import { render, screen } from '@testing-library/react';
-import { MockAppWrapper } from './tetsMocks';
-import { Suggestions } from './Suggestions';
+import React from 'react'
+import { render, screen } from '@testing-library/react'
+import { MockAppWrapper } from '../../tetsMocks'
+import { Suggestions } from '../Suggestions'
 
 describe('Suggestions component', () => {
   it('should render an item per suggestion sliced to 5', () => {
@@ -34,4 +34,4 @@ describe('Suggestions component', () => {
     expect(item5).toBeDefined()
     expect(item6.length).toEqual(0)
   })
-});
+})

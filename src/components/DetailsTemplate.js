@@ -1,6 +1,6 @@
 
 import './DetailsTemplate.css'
-import React, { Fragment } from 'react';
+import React, { Fragment } from 'react'
 
 export const DetailsTemplate = ({
   testid,

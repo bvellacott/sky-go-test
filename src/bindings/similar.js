@@ -5,14 +5,14 @@ export const getSimilar = async (
   try {
     const response = await fetch(
       `/api/similar/${mediaType}/${id}`,
-    );
+    )
     if (response.ok) {
       return response.json()
     } else {
       console.error('failed to get similar titles')
     }
   } catch (e) {
-    console.error(e);
+    console.error(e)
   }
   return {}
 }

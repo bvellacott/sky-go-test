@@ -1,13 +1,13 @@
 import React, {
   createContext,
   useState,
-} from 'react';
+} from 'react'
 import { search } from './search'
 import { getDetails } from './details'
 import { getSimilar } from './similar'
 import { searchTypes } from '../searchTypes'
 
-export const MovieContext = createContext({});
+export const MovieContext = createContext({})
 
 export const MovieProvider = ({ children }) => {
   const [feed, setFeed] = useState({})
@@ -26,11 +26,11 @@ export const MovieProvider = ({ children }) => {
     setQuery,
     setSearchType,
     setSuggestions,
-    getSearchSuggestions: (searchType, query) => {
+    getSearchSuggestions: async (searchType, query) => {
       if (query.length < 3) {
         setSuggestions([])
       } else {
-        search(searchType, query, setSuggestions)
+        setSuggestions(await search(searchType, query))
       }
     },
     runSearch: async (

@@ -1,8 +1,8 @@
-import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
-import { Route } from 'react-router-dom';
-import { MockAppWrapper } from './tetsMocks';
-import { Search } from './Search';
+import React from 'react'
+import { render, screen, fireEvent } from '@testing-library/react'
+import { Route } from 'react-router-dom'
+import { MockAppWrapper } from '../../tetsMocks'
+import { Search } from '../Search'
 
 let mockHistoryPush
 
@@ -89,4 +89,4 @@ describe('Search component', () => {
     expect(setQuery).toHaveBeenCalledWith('alfie')
     expect(getSearchSuggestions).toHaveBeenCalledWith('tv', 'alfie')
   })
-});
+})

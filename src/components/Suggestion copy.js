@@ -1,7 +1,7 @@
 import './Suggestion.css'
-import React, { useContext } from 'react';
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
-import { MovieContext } from './bindings';
+import { MovieContext } from '../bindings'
 import {
   getMediaType,
   getImageForResult,
@@ -12,7 +12,7 @@ export const Suggestion = ({ result }) => {
     setSuggestions,
     searchType,
     setQuery
-  } = useContext(MovieContext);
+  } = useContext(MovieContext)
   const image = getImageForResult(result)
   const { name, title } = result
   const itemTitle = name || title

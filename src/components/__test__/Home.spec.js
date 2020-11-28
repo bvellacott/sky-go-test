@@ -1,8 +1,8 @@
-import React, { useContext } from 'react';
-import { render, screen } from '@testing-library/react';
-import { Route } from 'react-router-dom';
-import { MockAppWrapper } from './tetsMocks';
-import { Home } from './Home';
+import React from 'react'
+import { render, screen } from '@testing-library/react'
+import { Route } from 'react-router-dom'
+import { MockAppWrapper } from '../../tetsMocks'
+import { Home } from '../Home'
 
 describe('Home component', () => {
   it('should run a search with the correct parameters', () => {
@@ -16,7 +16,7 @@ describe('Home component', () => {
       </MockAppWrapper>
     )
 
-    expect(runSearch).toHaveBeenCalledWith('multi', 'alf');
+    expect(runSearch).toHaveBeenCalledWith('multi', 'alf')
   })
 
   it('should render results with the results own mediaType when searchType is multi', () => {
@@ -33,7 +33,7 @@ describe('Home component', () => {
     )
 
     const resultLink = screen.getByTestId('result__link')
-    expect(resultLink.href).toEqual('http://localhost/details/movie/123');
+    expect(resultLink.href).toEqual('http://localhost/details/movie/123')
   })
 
   it('should render results with the common mediaType when searchType other than multi', () => {
@@ -50,6 +50,6 @@ describe('Home component', () => {
     )
 
     const resultLink = screen.getByTestId('result__link')
-    expect(resultLink.href).toEqual('http://localhost/details/tv/123');
+    expect(resultLink.href).toEqual('http://localhost/details/tv/123')
   })
-});
+})

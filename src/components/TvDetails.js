@@ -1,11 +1,11 @@
 
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import { MovieContext } from './bindings';
+import { MovieContext } from '../bindings'
 import { DetailsTemplate } from './DetailsTemplate'
-import { Results } from './Results';
+import { Results } from './Results'
 
-export const MovieDetails = () => {
+export const TvDetails = () => {
   const {
     details = {},
     similar = [],
@@ -18,22 +18,22 @@ export const MovieDetails = () => {
     getSimilar(mediaType, id)
   }, [mediaType, id])
   const {
-    title,
+    name,
     backdrop_path,
     poster_path,
     overview,
   } = details
   return (
     <DetailsTemplate
-      testid="movie-details"
-      title={title}
-      type="Movie"
+      testid="tv-details"
+      title={name}
+      type="TV Show"
       image={backdrop_path || poster_path}
       waffle={overview}
-      waffleTitle={`About ${title}`}
-      contentTitle={`Similar to '${title}'`}
+      waffleTitle={`About ${name}`}
+      contentTitle={`Similar to '${name}'`}
     >
       <Results results={similar} mediaType={mediaType} />
     </DetailsTemplate>
-  );
+  )
 }

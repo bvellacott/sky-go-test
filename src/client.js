@@ -2,7 +2,7 @@ import './reset.css';
 import './base.css';
 import { MovieProvider } from './bindings'
 import { BrowserRouter } from 'react-router-dom';
-import { App } from './App';
+import { App } from './components/App';
 import React from 'react';
 import { hydrate } from 'react-dom';
 

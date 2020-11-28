@@ -1,7 +1,7 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { parse } from 'query-string'
-import { MovieContext } from './bindings';
+import { MovieContext } from '../bindings'
 import { Results } from './Results'
 
 export const Home = ({
@@ -13,7 +13,7 @@ export const Home = ({
   const {
     results = [],
     runSearch,
-  } = useContext(MovieContext);
+  } = useContext(MovieContext)
 
   useEffect(() => {
     if (searchType && query) {
@@ -25,5 +25,5 @@ export const Home = ({
     ? searchType
     : null
 
-  return <Results mediaType={mediaType} results={results} />;
+  return <Results mediaType={mediaType} results={results} />
 }

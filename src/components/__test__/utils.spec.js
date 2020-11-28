@@ -1,10 +1,7 @@
-import React from 'react';
-import { render, screen } from '@testing-library/react';
-import { MockAppWrapper } from './tetsMocks';
 import {
   getImageForResult,
   getMediaType,
-} from './utils';
+} from '../utils'
 
 describe('utils', () => {
   describe('getImageForResult', () => {
@@ -72,4 +69,4 @@ describe('utils', () => {
       expect(mediaType).toEqual('movie')
     })
   })
-});
+})

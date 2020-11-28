@@ -1,8 +1,8 @@
-import React from 'react';
-import { render, screen } from '@testing-library/react';
-import { Route } from 'react-router-dom';
-import { MockAppWrapper } from './tetsMocks';
-import { TvDetails } from './TvDetails';
+import React from 'react'
+import { render, screen } from '@testing-library/react'
+import { Route } from 'react-router-dom'
+import { MockAppWrapper } from '../../tetsMocks'
+import { TvDetails } from '../TvDetails'
 
 describe('TvDetails component', () => {
   it('should run a getDetails and getSimilar call with correct parameters', () => {
@@ -18,8 +18,8 @@ describe('TvDetails component', () => {
       </MockAppWrapper>
     )
 
-    expect(getDetails).toHaveBeenCalledWith('movie', '123');
-    expect(getSimilar).toHaveBeenCalledWith('movie', '123');
+    expect(getDetails).toHaveBeenCalledWith('movie', '123')
+    expect(getSimilar).toHaveBeenCalledWith('movie', '123')
   })
 
   it('should primarily render the backdrop_path from the details', () => {
@@ -37,7 +37,7 @@ describe('TvDetails component', () => {
     )
 
     const image = screen.getByTestId('tv-details-image')
-    expect(image.src).toEqual('http://image.tmdb.org/t/p/original/backdrop.png');
+    expect(image.src).toEqual('http://image.tmdb.org/t/p/original/backdrop.png')
   })
 
   it('should secondarily render the poster_path from the details', () => {
@@ -54,6 +54,6 @@ describe('TvDetails component', () => {
     )
 
     const image = screen.getByTestId('tv-details-image')
-    expect(image.src).toEqual('http://image.tmdb.org/t/p/original/poster.png');
+    expect(image.src).toEqual('http://image.tmdb.org/t/p/original/poster.png')
   })
-});
+})

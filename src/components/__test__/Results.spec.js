@@ -1,7 +1,7 @@
-import React from 'react';
-import { render, screen } from '@testing-library/react';
-import { Results } from './Results';
-import { MockAppWrapper } from './tetsMocks';
+import React from 'react'
+import { render, screen } from '@testing-library/react'
+import { Results } from '../Results'
+import { MockAppWrapper } from '../../tetsMocks'
 
 describe('Result component', () => {
   it('should render an item per result', () => {
@@ -19,4 +19,4 @@ describe('Result component', () => {
     expect(link1).toBeDefined()
     expect(link2).toBeDefined()
   })
-});
+})

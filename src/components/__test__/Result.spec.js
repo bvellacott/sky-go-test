@@ -1,7 +1,7 @@
-import React from 'react';
-import { render, screen } from '@testing-library/react';
-import { Result } from './Result';
-import { MockAppWrapper } from './tetsMocks';
+import React from 'react'
+import { render, screen } from '@testing-library/react'
+import { Result } from '../Result'
+import { MockAppWrapper } from '../../tetsMocks'
 
 describe('Result component', () => {
   it('should render link built from result mediaType and id', () => {
@@ -15,7 +15,7 @@ describe('Result component', () => {
     )
 
     const link = screen.getByTestId('result__link')
-    expect(link.href).toEqual('http://localhost/details/movie/123');
+    expect(link.href).toEqual('http://localhost/details/movie/123')
   })
 
   it('should render link built from passed mediaType and result id', () => {
@@ -30,7 +30,7 @@ describe('Result component', () => {
     )
 
     const link = screen.getByTestId('result__link')
-    expect(link.href).toEqual('http://localhost/details/tv/123');
+    expect(link.href).toEqual('http://localhost/details/tv/123')
   })
 
   it('should primarily render result name as title', () => {
@@ -45,7 +45,7 @@ describe('Result component', () => {
     )
 
     const title = screen.getByTestId('result__name')
-    expect(title.textContent).toEqual('primary');
+    expect(title.textContent).toEqual('primary')
   })
 
   it('should secondarily render result title as title', () => {
@@ -60,6 +60,6 @@ describe('Result component', () => {
     )
 
     const title = screen.getByTestId('result__name')
-    expect(title.textContent).toEqual('secondary');
+    expect(title.textContent).toEqual('secondary')
   })
-});
+})
