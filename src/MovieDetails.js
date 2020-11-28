@@ -1,5 +1,4 @@
 
-import './Home.css'
 import React, { useContext, useEffect } from 'react';
 import { useParams } from 'react-router-dom'
 import { MovieContext } from './bindings';

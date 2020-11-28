@@ -1,5 +1,4 @@
 
-import './Home.css'
 import React from 'react';
 import { useParams } from 'react-router-dom'
 import { MovieDetails } from './MovieDetails'

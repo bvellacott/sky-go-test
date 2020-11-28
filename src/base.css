@@ -16,6 +16,7 @@ header {
   background: steelblue;
   color: white;
   height: 96px;
+  z-index: 1000;
 }
 
 main {
