@@ -17,3 +17,8 @@ Your app is ready to be deployed!
 Runs the compiled app in production.
 
 You can again view your application at `http://localhost:3000`
+
+### `npm test` or `yarn test`
+
+Runs the test watcher (Jest) in an interactive mode.
+By default, runs tests related to files changed since the last commit.
