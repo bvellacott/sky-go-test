@@ -8,21 +8,24 @@
 }
 
 .details-template__heading {
+  border-radius: 5px;
   position: relative;
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
+  width: 90%;
 }
 
 .details-template__title {
-  border-radius: 5px;
   position: absolute;
+  top: 0;
   font-size: 32px;
   font-weight: bold;
   background: rgba(0, 0, 0, 0.5);
   color: white;
-  width: 80%;
+  width: 100%;
 }
 
 .details-template__type {
@@ -35,8 +38,7 @@
 }
 
 .details-template__image {
-  border-radius: 5px;
-  width: 90%;
+  width: 100%;
 }
 
 .details-template__waffle {
@@ -44,11 +46,15 @@
   font-weight: bold;
   line-height: 2;
   color: darkslategray;
-  margin: 10%;
+  width: 90%;
 }
 
 .details-template__content-heading {
   font-size: 24px;
   font-weight: bold;
-  color: white;
+  color: darkslategray;
+  width: 100%;
+  margin: 20px 0;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.1);
 }

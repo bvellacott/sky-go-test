@@ -3,6 +3,7 @@ import React, { useContext, useEffect } from 'react';
 import { useParams } from 'react-router-dom'
 import { MovieContext } from './bindings';
 import { DetailsTemplate } from './DetailsTemplate'
+import { Results } from './Results';
 
 export const TvDetails = () => {
   const {
@@ -28,7 +29,8 @@ export const TvDetails = () => {
       type="TV Show"
       image={backdrop_path || poster_path}
       waffle={overview}
-      contentTitle={`Similar to '${title}'`}
+      waffleTitle={`About ${name}`}
+      contentTitle={`Similar to '${name}'`}
     >
       <Results results={similar} mediaType={mediaType} />
     </DetailsTemplate>

@@ -29,10 +29,9 @@ export const PersonDetails = () => {
   return (
     <DetailsTemplate
       title={name}
-      type={known_for_department && `Known for ${known_for_department}`}
       image={profile_path}
       waffle={biography}
-      contentTitle={'Known for'}
+      waffleTitle={`About ${name}`}
     >
       <Results results={known_for} />
     </DetailsTemplate>

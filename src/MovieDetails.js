@@ -29,6 +29,7 @@ export const MovieDetails = () => {
       type="Movie"
       image={backdrop_path || poster_path}
       waffle={overview}
+      waffleTitle={`About ${title}`}
       contentTitle={`Similar to '${title}'`}
     >
       <Results results={similar} mediaType={mediaType} />

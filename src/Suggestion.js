@@ -11,6 +11,7 @@ export const Suggestion = ({ result }) => {
   const {
     setSuggestions,
     searchType,
+    setQuery
   } = useContext(MovieContext);
   const image = getImageForResult(result)
   const { name, title } = result
@@ -19,7 +20,10 @@ export const Suggestion = ({ result }) => {
     <Link
       className="suggestion"
       to={`/details/${mediaType}/${result.id}`}
-      onClick={() => setSuggestions([])}
+      onClick={() => {
+        setSuggestions([])
+        setQuery(name || title)
+      }}
     >
       <h3 className="suggestion__title">{name || title}</h3>
       <img
